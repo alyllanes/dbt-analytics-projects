@@ -36,6 +36,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
+  +database: analytics-engineering-projects
   +materialized: view
 
   intermediate:
