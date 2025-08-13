@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: google_analytics
+    database: bigquery-public-data
+    schema: ga4_obfuscated_sample_ecommerce
+    tables:
+      - name: events_*
+        description: App events from Google Analytics 4from BigQuery Public Data
+        
