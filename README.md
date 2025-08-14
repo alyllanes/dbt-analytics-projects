@@ -1,4 +1,4 @@
-# dbt Analytics Projects
+# dbt Analytics Engineering Projects
 ### About
 - data build tool (dbt) sample project
 - uses BigQuery as the data warehouse
