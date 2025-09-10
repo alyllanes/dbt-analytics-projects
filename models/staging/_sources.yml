@@ -1,0 +1,38 @@
+version: 2
+
+sources:
+  - name: google_analytics
+    database: bigquery-public-data
+    schema: ga4_obfuscated_sample_ecommerce
+    tables:
+      - name: events_*
+        description: App events from Google Analytics 4from BigQuery Public Data
+
+  - name: the_look_ecommerce
+    database: bigquery-public-data
+    schema: thelook_ecommerce
+    tables:
+      - name: distribution_centers
+        description: The distribution center location of the product with longitude, latitude, and geometrical point.
+      - name: events
+        description: The details of the sessions of site visitors.
+      - name: inventory_items
+        description: The store's inventory items with product details such as brand, category, name, and retail price. 
+      - name: order_items
+        description: The details of the order line items per customer.
+      - name: orders
+        description: The details of the orders per customer.
+      - name: products
+        description: The details of the products.
+      - name: users
+        description: The details of the users.
+
+  - name: jaffle_shop
+    description: This is a replica of the Postgres database used by our app
+    database: dbt-tutorial
+    schema: jaffle_shop
+    tables:
+      - name: customers
+        description: One record per customer.
+      - name: orders
+        description: One record per order. Includes cancelled and deleted orders.
