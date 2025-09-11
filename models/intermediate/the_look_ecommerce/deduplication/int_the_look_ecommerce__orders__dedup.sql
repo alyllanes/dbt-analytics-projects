@@ -10,7 +10,7 @@ with import_source as (
 
 qualified as (
     select * from import_source
-    qualify 1=row_number() over (partition by order_id, order by created_at desc)
+    qualify 1=row_number() over (partition by order_id order by created_at desc)
 )
 
 select * from qualified
