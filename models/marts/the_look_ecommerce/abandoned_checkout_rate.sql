@@ -1,0 +1,1 @@
+-- those that added items to their carts but did not proceed to purchase

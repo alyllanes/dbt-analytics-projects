@@ -1,0 +1,1 @@
+-- CLTV = [average value of sale] x [number of transactions] x [retention period]

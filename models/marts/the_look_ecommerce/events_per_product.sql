@@ -10,7 +10,7 @@ with events as (
     event_type,
     date(date_trunc(created_at, month)) as created_month, 
     cast(split(uri, "/")[2] as INT64) as uri_extracted_id
-  from {{ref("int_the_look_ecommerce__events")}}
+  from {{ref("int_the_look_ecommerce__events__dedup")}}
   where event_type = "product"
   qualify 1=row_number() over (partition by session_id order by sequence_number desc)
 ),
@@ -21,7 +21,7 @@ products as (
     brand,
     category,
     name
-  from {{ref("int_the_look_ecommerce__products")}}
+  from {{ref("int_the_look_ecommerce__products__dedup")}}
 ),
 
 join_products as (
