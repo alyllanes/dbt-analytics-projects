@@ -1,0 +1,1 @@
+-- Store Revenue = [Site Traffic] x [Site Conversion Rate] x [AOV - Average Order Value]

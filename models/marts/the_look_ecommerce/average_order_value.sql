@@ -1,0 +1,1 @@
+-- average order value = total revenue/number of orders taken

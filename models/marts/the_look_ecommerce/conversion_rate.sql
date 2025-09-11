@@ -1,0 +1,2 @@
+-- Conversion rate = [no. of conversions/total visitors] * 100
+-- Conversion rate in the US = 2.8% can use as a benchmark
