@@ -1,6 +1,6 @@
 {{ 
     config (
-        materialized="incremental", 
+        materialized="table", 
         unique_key="date_id",
         schema="the_look_ecommerce"
     ) 
