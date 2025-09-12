@@ -1,9 +1,3 @@
-{{
-    config(
-        schema='the_look_ecommerce'
-    )
-}}
-
 with abandoned_checkouts as (
     select
         created_month,

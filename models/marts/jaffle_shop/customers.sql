@@ -1,9 +1,3 @@
-{{
-    config(
-        schema='jaffle_shop'
-    )
-}}
-
 with customers as (
 
     select

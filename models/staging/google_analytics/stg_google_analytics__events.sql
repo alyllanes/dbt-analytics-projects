@@ -1,9 +1,3 @@
-{{
-    config(
-        schema='staging'
-    )
-}}
-
 with import_source as (
     select * from {{source('google_analytics', 'events_*')}}
 ),

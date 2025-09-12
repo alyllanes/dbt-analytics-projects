@@ -1,9 +1,3 @@
-{{
-    config(
-        schema='google_analytics'
-    )
-}}
-
 with import_dedup as (
     select *  from {{ref('int_google_analytics__events__dedup')}}
 ),
