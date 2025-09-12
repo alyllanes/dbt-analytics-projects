@@ -1,4 +1,9 @@
 -- Abandoned Checkouts = those that added items to their carts but did not proceed to purchase
+{{
+    config(
+        schema='the_look_ecommerce'
+    )
+}}
 
 with import_events as (
     select * from {{ref("fct_events")}}
