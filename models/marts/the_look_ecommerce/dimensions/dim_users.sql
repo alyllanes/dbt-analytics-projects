@@ -1,8 +1,7 @@
 {{
     config(
-        materialized='incremental',
-        unique_key='id',
-        schema='the_look_ecommerce'
+        materialized='table',
+        unique_key='id'
     )
 }}
 
