@@ -36,19 +36,20 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 
 models:
+  analytics_engineering_projects:
+  
+    intermediate:
+      +materialized: ephemeral
 
-  intermediate:
-    +materialized: ephemeral
+    marts:
+      google_analytics:
+        +schema: google_analytics
 
-  marts:
-    google_analytics:
-      +schema: google_analytics
+      jaffle_shop:
+        +schema: jaffle_shop
+      
+      the_look_ecommerce:
+        +schema: the_look_ecommerce
 
-    jaffle_shop:
-      +schema: jaffle_shop
-    
-    the_look_ecommerce:
-      +schema: the_look_ecommerce
-
-  staging:
-    +schema: staging
+    staging:
+      +schema: staging
