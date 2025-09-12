@@ -1,7 +1,8 @@
 {{ 
     config (
         materialized="incremental", 
-        unique_key="date_id"
+        unique_key="date_id",
+        schema="the_look_ecommerce"
     ) 
 }}
 
