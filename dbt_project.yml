@@ -44,10 +44,10 @@ models:
 
   marts:
     google_analytics:
-      +schema: google_analytics
+      schema: google_analytics
 
     jaffle_shop:
-      +schema: jaffle_shop
+      schema: jaffle_shop
 
   staging:
-    +schema: staging
+    schema: staging
