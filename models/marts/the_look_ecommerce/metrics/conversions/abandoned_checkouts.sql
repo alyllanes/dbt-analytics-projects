@@ -12,7 +12,10 @@ final_event_per_session as (
         date(date_trunc(created_at, month)) as created_month,
         session_id,
         event_type as final_event_type,
-        traffic_source
+        traffic_source,
+        user_id,
+        city,
+        state
     from import_events
     -- this window function is used to get the final event per session
     qualify 1=row_number() over (partition by session_id order by created_at desc, sequence_number desc)
@@ -28,7 +31,10 @@ join_event_product as (
         product_name,
         product_category,
         product_brand,
-        product_department
+        product_department,
+        user_id,
+        city,
+        state
     from final_event_per_session
     left join import_event_product using(session_id)
 ),

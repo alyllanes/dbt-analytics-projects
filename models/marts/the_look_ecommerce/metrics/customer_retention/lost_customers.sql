@@ -1,0 +1,1 @@
+-- Churn rate = (Lost customers ÷ total customers at the start of period) x 100
