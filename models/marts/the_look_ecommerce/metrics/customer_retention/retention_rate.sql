@@ -1,1 +1,0 @@
--- Retention rate = (Number of customers at end of period - Number of new customers acquired) ÷ Number of customers at start of period x 100
