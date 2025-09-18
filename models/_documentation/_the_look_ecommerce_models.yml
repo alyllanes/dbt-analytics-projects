@@ -77,3 +77,24 @@ models:
         description: The last order date of the customer
       - name: customer_lifetime
         description: The days between the first and last order date converted to years.
+
+  - name: revenue
+    description: Order item-level metrics used for analyzing the revenue; Only considers "Complete" or "Shipped" orders.
+    columns:
+      - name: order_id
+        description: A unique identifier per order
+      - name: order_item_id
+        description: A unique identifier for an item in an order
+        tests:
+          - not_null
+          - unique
+      - name: product_id
+        description: A unique identifier per product
+      - name: quantity
+        description: The quantity of the order item per order
+      - name: cost
+        description: The cost of procuring the item
+      - name: sale_price
+        description: The sale amount
+      - name: revenue
+        description: The sale amount minus the cost of procuring the item.
