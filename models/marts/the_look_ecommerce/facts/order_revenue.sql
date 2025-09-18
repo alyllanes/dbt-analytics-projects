@@ -19,7 +19,7 @@ inventory as (
     where sold_at is not null
 ),
 
-revenue as (
+order_revenue as (
     select
         order_id,
         order_item_id,
@@ -32,4 +32,4 @@ revenue as (
     left join inventory b on a.product_id = b.product_id and a.ordered_at = b.sold_at
 )
 
-select * from revenue
+select * from order_revenue
