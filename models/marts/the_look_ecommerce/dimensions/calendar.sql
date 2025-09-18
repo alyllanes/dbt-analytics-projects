@@ -9,7 +9,7 @@ with event_dates as (
     select 
         min(date(created_at)) as start_date, 
         max(date(created_at)) as end_date
-    from {{ ref("fct_events") }}
+    from {{ ref("events") }}
 ),
 
 date_spine as (

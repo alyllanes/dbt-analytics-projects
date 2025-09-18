@@ -9,7 +9,7 @@ with import_events as (
         id as event_id,
         session_id,
         cast(split(uri, "/")[2] as int64) as product_id
-    from {{ref("fct_events")}}
+    from {{ref("events")}}
     where event_type = "product"
 ),
 
@@ -20,7 +20,7 @@ import_products as (
         category as product_category,
         brand as product_brand,
         department as product_department
-    from {{ref("dim_products")}}
+    from {{ref("products")}}
 ),
 
 final as (
