@@ -1,0 +1,79 @@
+version: 2
+
+models:
+# BigQuery
+  - name: orders
+    description: One order per row
+    columns:
+      - name: order_id
+        description: A unique identifier per order
+        tests:
+          - not_null
+          - unique
+      - name: user_id
+        description: A unique identifier per customer
+      - name: status
+        description: The status of the order. (Ex. "Returned", "Cancelled", "Complete", "Processing", "Shipped")
+      - name: gender
+        description: The gender of the customer. (Ex. "M" for Male, "F" for Female)
+      - name: created_at
+        description: The order timestamp in UTC
+      - name: returned_at
+        description: The return timestamp in UTC
+      - name: shipped_at
+        description: The shipping timestamp in UTC
+      - name: delivered_at
+        description: The delivery timestamp in UTC
+      - name: num_of_item
+        description: The number of items or products in the order.
+
+  - name: order_items
+    description: One item per order 
+    columns:
+      - name: id
+        description: A unique identifier for an item in an order
+        tests:
+          - not_null
+          - unique
+      - name: order_id
+        description: A unique identifier per order
+      - name: user_id
+        description: A unique identifier per customer
+      - name: product_id
+        description: A unique identifier per product
+      - name: inventory_item_id
+        description: A unique identifier for the inventory item
+      - name: status
+        description: The status of the order. (Ex. "Returned", "Cancelled", "Complete", "Processing", "Shipped") 
+      - name: created_at
+        description: The timestamp in UTC when an item is added to the cart.
+      - name: shipped_at
+        description: The shipping timestamp of the item in UTC; It is the same time for the whole order
+      - name: delivered_at
+        description: The delivery timestamp in UTC
+      - name: returned_at
+        description: The return timestamp in UTC
+      - name: sale_price
+        description: The price when the item was sold. It is possible that there might be discounts in place which can be calculated by comparing the retail price from the Inventory Items table to the sale price.
+
+# Dimensions
+
+# Facts
+  - name: customer_behavior
+    description: Customer-level metrics used to calculate the Customer Lifetime Value (CLV); Only considers "Complete" or "Shipped" orders.
+    columns:
+      - name: user_id
+        description: A unique identifier per customer
+        tests:
+          - not_null
+          - unique
+      - name: order_value
+        description: The total amount of completed purchases per customer
+      - name: purchase_frequency
+        description: The total orders per customer
+      - name: first_order_date
+        description: The first order date of the customer
+      - name: last_order_date
+        description: The last order date of the customer
+      - name: customer_lifetime
+        description: The days between the first and last order date converted to years.
