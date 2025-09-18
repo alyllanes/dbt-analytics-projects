@@ -19,7 +19,7 @@ inventory as (
     where sold_at is not null
 ),
 
-order_revenue as (
+revenue_per_order as (
     select
         order_id,
         order_item_id,
@@ -27,9 +27,9 @@ order_revenue as (
         1 as quantity,
         cost,
         sale_price,
-        sale_price - cost as revenue
+        sale_price - cost as order_revenue
     from orders a
     left join inventory b on a.product_id = b.product_id and a.ordered_at = b.sold_at
 )
 
-select * from order_revenue
+select * from revenue_per_order
